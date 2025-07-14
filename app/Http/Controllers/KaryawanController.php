@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -9,9 +10,11 @@ class KaryawanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(request $request)
     {
-        //
+        $karyawans = Karyawan::all();
+
+        return view('page.karyawan', compact('karyawans'));
     }
 
     /**
@@ -27,12 +30,22 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama'      => 'required|string|max:255',
+            'email'     => 'required|email|max:255',
+            'kelas'     => 'required|string|max:50',
+            'jk'        => 'required|in:L,P',
+            'alamat'    => 'required|string|max:255',
+            'noHP'      => 'required|integer',
+            'status'    => 'required|in:online,offline',
+        ]);
+
+        Karyawan::create($validatedData);
+
+        return redirect()->route('page.karyawan')->with('success', 'Karyawan Telah Ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //

@@ -93,33 +93,34 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        @forelse ($pemasoks as $pemasok)
+
                         <tr
-                            class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300 dark:hover:bg-red  -600">
+                            class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
-                                    <input id="checkbox-table-search-1" type="checkbox"
-                                        class="w-4 h-4 text-red-900 bg-red-100 border-red-300 rounded-sm focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-red-800 dark:focus:ring-offset-red-800 focus:ring-2 dark:bg-red-700 dark:border-red-600">
-                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                   
                                 </div>
                             </td>
                             <th scope="row"
                                 class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
                             
                                 <div class="ps-3">
-                                    <div class="text-base font-semibold">Pemasok 1</div>
-                                    <div class="font-normal text-red-500">pemasok1@gmail.com</div>
+                                    <div class="text-base font-semibold">{{ $pemasok->nama_pemasok }}</div>
+                                    <div class="font-normal text-red-500">{{ $pemasok->email}}</div>
                                 </div>
                             </th>
                             <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                Jalan Raya No. 123, Jakarta
+                                {{ $pemasok->alamat }}
                             </td>
                             <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                08123456789
+                                {{ $pemasok->no_telp }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
-                                        class ="text-red-700">Online</span>
+                                        class ="text-red-700">{{ $pemasok->status }}</span>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
@@ -127,6 +128,14 @@
                                     class="font-medium text-red-100 dark:text-red-700 hover:underline">Edit</a>
                             </td>
                         </tr>
+                         @empty
+                        <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
+                            <td colspan="6" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                                Tidak ada data Pemasok yang ditemukan.
+                            </td>
+                        </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
