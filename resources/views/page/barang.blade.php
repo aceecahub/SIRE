@@ -2,9 +2,9 @@
     {{-- Section 1 --}}
     <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
 
-        <h3 class="text-red-900 text-3xl font-medium mb-2">Karyawan</h3>
+        <h3 class="text-red-900 text-3xl font-medium mb-2">Data Barang</h3>
 
-        {{-- Tabel Karyawan --}}
+        {{-- Tabel Barang --}}
 
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -46,7 +46,7 @@
                             <div class="py-1">
                                 <a href="#"
                                     class="block px-4 py-2 text-sm text-red-700 hover:bg-red-100 dark:hover:bg-red-600 dark:text-red-200 dark:hover:text-white">Hapus
-                                    Karyawan</a>
+                                    Barang</a>
                             </div>
                         </div>
                     </div>
@@ -76,13 +76,19 @@
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Karyawan
+                                Nama Barang
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Kelas
+                                Harga Jual
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Status
+                                Harga Beli
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Stok
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Kadaluarsa
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Aksi
@@ -101,20 +107,25 @@
                             </td>
                             <th scope="row"
                                 class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}"
-                                    alt="">
+                            
                                 <div class="ps-3">
-                                    <div class="text-base font-semibold">Asisyah Sarah</div>
-                                    <div class="font-normal text-red-500">asisyah@gmail.com</div>
+                                    <div class="text-base font-semibold">Barang 1</div>
+                                    {{-- <div class="font-normal text-red-500">pemasok1@gmail.com</div> --}}
                                 </div>
                             </th>
                             <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                Manajemen Informatika
+                                Rp 100.000
+                            </td>
+                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                Rp 80.000
+                            </td>
+                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                90 pcs
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
-                                        class ="text-red-700">Online</span>
+                                        class ="text-red-700"> 01/08/25</span>
                                 </div>
                             </td>
                             <td class="px-6 py-4">

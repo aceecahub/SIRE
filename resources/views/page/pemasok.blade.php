@@ -2,7 +2,7 @@
     {{-- Section 1 --}}
     <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
 
-        <h3 class="text-red-900 text-3xl font-medium mb-2">Karyawan</h3>
+        <h3 class="text-red-900 text-3xl font-medium mb-2">Data Pemasok</h3>
 
         {{-- Tabel Karyawan --}}
 
@@ -76,10 +76,13 @@
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Karyawan
+                                Nama Pemasok
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Kelas
+                                Alamat
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                No Hp
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Status
@@ -101,15 +104,17 @@
                             </td>
                             <th scope="row"
                                 class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}"
-                                    alt="">
+                            
                                 <div class="ps-3">
-                                    <div class="text-base font-semibold">Asisyah Sarah</div>
-                                    <div class="font-normal text-red-500">asisyah@gmail.com</div>
+                                    <div class="text-base font-semibold">Pemasok 1</div>
+                                    <div class="font-normal text-red-500">pemasok1@gmail.com</div>
                                 </div>
                             </th>
                             <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                Manajemen Informatika
+                                Jalan Raya No. 123, Jakarta
+                            </td>
+                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                08123456789
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
