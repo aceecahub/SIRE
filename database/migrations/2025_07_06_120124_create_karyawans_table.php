@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id('karyawan_id');
             $table->string('nama');
+            $table->string('email');
+            $table->string('kelas');
             $table->enum('jk', ['L', 'P']);
             $table->string('alamat');
             $table->integer('noHP');
+            $table->enum('status', ['online', 'offline']);
             $table->timestamps();
         });
     }
