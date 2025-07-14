@@ -62,7 +62,7 @@
                         </div>
                         <input type="text" id="table-search-users"
                             class="block p-2 ps-10 text-sm text-red-100 border border-red-300 rounded-lg w-80 bg-red-50 focus:ring-red-500 focus:border-red-500 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-100 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
-                            placeholder="Search for users">
+                            placeholder="Cari Pemasok">
                     </div>
                 </div>
                 <table class="w-full text-sm text-left rtl:text-right text-white dark:text-white">
