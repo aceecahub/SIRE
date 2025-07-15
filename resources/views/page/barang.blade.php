@@ -81,7 +81,7 @@
                                             <div class="col-span-2">
                                                 <label for="alamat" class="block mb-2 text-sm font-medium text-red-900">
                                                     Alamat</label>
-                                                <textarea name="alamat" id="alamat" placeholder="Alamat Pemasok"
+                                                <textarea name="alamat" id="alamat" placeholder="Alamat Barang"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     required></textarea>
                                             </div>
@@ -125,7 +125,7 @@
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a></li>
                             </ul>
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus Pemasok</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus Barang</a>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                         </div>
                         <input type="text" id="table-search-users"
                             class="block p-2 ps-10 text-sm text-red-900 border border-red-300 rounded-lg w-80 bg-red-50 focus:ring-red-500 focus:border-red-500"
-                            placeholder="Cari Pemasok">
+                            placeholder="Cari Barang">
                     </div>
                 </div>
                 <table class="w-full text-sm text-left text-red-900">
@@ -147,7 +147,7 @@
                             <th class="p-4">
                                 <input type="checkbox" class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
                             </th>
-                            <th class="px-6 py-3">Nama Pemasok</th>
+                            <th class="px-6 py-3">Nama Barang</th>
                             <th class="px-6 py-3">Tanggal Terdaftar</th>
                             <th class="px-6 py-3">Alamat</th>
                             <th class="px-6 py-3">Nomor HP</th>
@@ -163,7 +163,7 @@
                             <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
                                 <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
                                 <div class="ps-3">
-                                    <div class="text-base font-semibold">Pemasok 1</div>
+                                    <div class="text-base font-semibold">Barang 1</div>
                                     <div class="font-normal text-red-500">pemasok1@gmail.com</div>
                                 </div>
                             </th>
