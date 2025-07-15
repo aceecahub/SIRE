@@ -14,11 +14,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Karyawan route
-Route::get('/karyawan', [KaryawanController::class, 'index']);
-
+Route::resource('/karyawan', KaryawanController::class);
 
 // Pemasok route
-Route::get('/pemasok', [PemasokController::class, 'index']);
+Route::resource('/pemasok', PemasokController::class);
+
 // Barang route
 Route::get('/barang', function () {
     return view('page.barang');

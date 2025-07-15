@@ -13,7 +13,6 @@ class KaryawanController extends Controller
     public function index(request $request)
     {
         $karyawans = Karyawan::all();
-
         return view('page.karyawan', compact('karyawans'));
     }
 
@@ -32,18 +31,16 @@ class KaryawanController extends Controller
     {
         $validatedData = $request->validate([
             'nama'      => 'required|string|max:255',
-            'email'     => 'required|email|max:255',
-            'kelas'     => 'required|string|max:50',
+            'email'     => 'required|email|unique:karyawans,email',
+            'kelas'     => 'required|string',
             'jk'        => 'required|in:L,P',
-            'alamat'    => 'required|string|max:255',
-            'noHP'      => 'required|integer',
-            'status'    => 'required|in:online,offline',
+            'alamat'    => 'required|string',
+            'noHP'      => 'required|numeric|unique:karyawans,noHP',
         ]);
-
         Karyawan::create($validatedData);
-
-        return redirect()->route('page.karyawan')->with('success', 'Karyawan Telah Ditambahkan.');
+        return back()->with('successNotif', "Data '" . $request->nama . "' berhasil ditambahkan.");
     }
+
 
 
     public function show(string $id)

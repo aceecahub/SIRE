@@ -8,15 +8,18 @@
 
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
+                <div
+                    class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
                     <div class="flex items-center">
                         <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
                             class="inline-flex items-center text-white bg-red-700 border border-red-600 focus:outline-none hover:bg-red-600 focus:ring-2 focus:ring-red-500 font-medium rounded-lg text-sm px-3 py-1.5"
                             type="button">
                             <span class="sr-only">Tombol Aksi</span>
                             Aksi
-                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
 
@@ -35,59 +38,65 @@
                                         <h3 class="text-xl font-semibold text-red-900">
                                             Tambah Karyawan
                                         </h3>
-                                        <button type="button"
-                                            class="text-red-400 bg-transparent hover:bg-red-200 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                            data-modal-hide="modalTambahKaryawan">
-                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                            </svg>
-                                            <span class="sr-only">Tutup modal</span>
-                                        </button>
                                     </div>
                                     <div class="p-4 md:p-5">
-                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2" action="#">
+                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2"
+                                            action="{{ route('karyawan.store') }}" method="POST">
+                                            @csrf
+
                                             <div class="col-span-2">
-                                                <label for="nama" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="nama"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Nama Karyawan</label>
                                                 <input type="text" name="nama" id="nama"
+                                                    value="{{ old('nama') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="Nama Karyawan" required />
                                             </div>
                                             <div>
-                                                <label for="email" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="email"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Email</label>
                                                 <input type="email" name="email" id="email"
+                                                    value="{{ old('email') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="nama@gmail.com" required />
                                             </div>
                                             <div>
-                                                <label for="kelas" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="kelas"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Kelas</label>
                                                 <input type="text" name="kelas" id="kelas"
+                                                    value="{{ old('kelas') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="Kelas" required />
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="alamat" class="block mb-2 text-sm font-medium text-red-900">
+                                                <label for="alamat"
+                                                    class="block mb-2 text-sm font-medium text-red-900">
                                                     Alamat</label>
-                                                <textarea name="alamat" id="alamat" placeholder="Alamat Karyawan"
+                                                <textarea name="alamat" id="alamat" placeholder="Alamat Karyawan" value="{{ old('alamat') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     required></textarea>
                                             </div>
                                             <div>
-                                                <label for="noHP" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="noHP"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     No Hp</label>
-                                                <input type="number" name="noHP" id="noHP" placeholder="08123456789"
+                                                <input type="number" name="noHP" id="noHP"
+                                                    value="{{ old('noHP') }}" placeholder="08123456789"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     required />
                                             </div>
                                             <div>
-                                                <label for="jk" class="block mb-1 text-sm font-medium text-red-900">Jenis Kelamin</label>
-                                                <select id="jk"
+                                                <label for="jk"
+                                                    class="block mb-1 text-sm font-medium text-red-900">Jenis
+                                                    Kelamin</label>
+                                                <select id="jk" name="jk"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5">
                                                     <option selected disabled hidden>Jenis Kelamin</option>
-                                                    <option value="Perempuan">Perempuan</option>
-                                                    <option value="Laki-Laki">Laki-Laki</option>
+                                                    <option value="P">Perempuan</option>
+                                                    <option value="L">Laki-Laki</option>
                                                 </select>
                                             </div>
                                             <button type="submit"
@@ -109,15 +118,18 @@
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a></li>
                             </ul>
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus Karyawan</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus
+                                    Karyawan</a>
                             </div>
                         </div>
                     </div>
                     <label for="table-search" class="sr-only">Cari </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
                         <input type="text" id="table-search-users"
@@ -129,7 +141,8 @@
                     <thead class="text-xs uppercase bg-red-200 text-red-800">
                         <tr>
                             <th class="p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
+                                <input type="checkbox"
+                                    class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
                             </th>
                             <th class="px-6 py-3">Nama Karyawan</th>
                             <th class="px-6 py-3">Kelas</th>
@@ -142,66 +155,39 @@
                     </thead>
 
                     <tbody>
-                        <tr class="bg-red-100 border-b border-red-300">
-                            <td class="w-4 p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-900 bg-red-100 border-red-300 rounded-sm">
-                            </td>
-                            <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Asisyah Sarah</div>
-                                    <div class="font-normal text-red-500">asisyah@gmail.com</div>
-                                </div>
-                            </th>
-                            <td class="px-6 py-4">Manajemen Informatika</td>
-                            <td class="px-6 py-4">Jenis Kelamin</td>
-                            <td class="px-6 py-4">Alamat</td>
-                            <td class="px-6 py-4">0293808900</td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                    <span>Online</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-
-
-                    @forelse ($karyawans as $karyawan)
-                    <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300">
-                        <td class="w-4 p-4">
-                            <!-- Checkbox atau ikon bisa ditaruh di sini -->
-                        </td>
-                        <th scope="row" class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
-                            <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
-                            <div class="ps-3">
-                                <div class="text-base font-semibold">{{ $karyawan->nama }}</div>
-                                <div class="font-normal text-red-500">{{ $karyawan->email }}</div>
-                            </div>
-                        </th>
-                        <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                            {{ $karyawan->kelas}}
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                <span class="text-red-700">{{ $karyawan->status }}</span>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-red-100 dark:text-red-700 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    @empty
-                    <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300">
-                        <td colspan="5" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
-                            Tidak ada data karyawan yang ditemukan.
-                        </td>
-                    </tr>
-                    @endforelse
-
+                        @forelse ($karyawans as $karyawan)
+                            <tr class="bg-red-100 border-b border-red-300">
+                                <td class="w-4 p-4">{{ $loop->iteration}}</td>
+                                <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
+                                    <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}"
+                                        alt="">
+                                    <div class="ps-3">
+                                        <div class="text-base font-semibold">{{ $karyawan->nama }}</div>
+                                        <div class="font-normal text-red-500">{{ $karyawan->email }}</div>
+                                    </div>
+                                </th>
+                                <td class="px-6 py-4">{{ $karyawan->kelas }}</td>
+                                <td class="px-6 py-4">{{ $karyawan->jk }}</td>
+                                <td class="px-6 py-4">{{ $karyawan->alamat }}</td>
+                                <td class="px-6 py-4">{{ $karyawan->noHP }}</td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                                        <span>{{ $karyawan->status }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr
+                                class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300">
+                                <td colspan="8" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                                    Tidak ada data karyawan yang ditemukan.
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -213,11 +199,16 @@
                 Showing <span class="font-semibold">1-10</span> of <span class="font-semibold">100</span> results
             </span>
             <nav class="flex items-center space-x-2">
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
             </nav>
         </div>
     </section>
