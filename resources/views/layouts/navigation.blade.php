@@ -14,7 +14,7 @@
 
      </div>
      <div class="border border-gray-400"></div>
-     <div class=" rounded-full px-5 py-3 mt-5 {{ request()->is('dashboard') ? 'bg-red-700 text-white' : 'hover:bg-red-200' }}">
+     <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('dashboard') ? 'bg-red-700 text-white' : 'hover:bg-red-200' }}">
          <a href="/dashboard">
              <p><i class="bi bi-cash"></i>Dashboard</p>
          </a>
@@ -28,13 +28,13 @@
          </a>
      </div>
      
-     <div class=" rounded-full px-5 py-3 mt-5 {{ request()->is('pemasok') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
+     <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('pemasok') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
          <a href="/pemasok">
              <p><i class="bi bi-cash"></i>Pemasok</p>
          </a>
      </div>
      
-     <div class=" rounded-full px-5 py-3 mt-5 {{ request()->is('barang') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
+     <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('barang') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
          <a href="/barang">
              <p><i class="bi bi-cash"></i>Barang</p>
          </a>
@@ -43,7 +43,7 @@
      
 
 
-     <div class=" rounded-full px-5 py-3 mt-5 {{ request()->is('kategori') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
+     <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('kategori') ? 'bg-red-700 text-white' : 'hover:bg-red-200    ' }}">
          <a href="/kategori">
              <p><i class="bi bi-cash"></i>Kategori</p>
          </a>

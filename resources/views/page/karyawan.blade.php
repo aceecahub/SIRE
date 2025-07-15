@@ -140,6 +140,7 @@
                             <th class="px-6 py-3">Aksi</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <tr class="bg-red-100 border-b border-red-300">
                             <td class="w-4 p-4">
@@ -166,6 +167,41 @@
                                 <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
                             </td>
                         </tr>
+
+
+                    @forelse ($karyawans as $karyawan)
+                    <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300">
+                        <td class="w-4 p-4">
+                            <!-- Checkbox atau ikon bisa ditaruh di sini -->
+                        </td>
+                        <th scope="row" class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
+                            <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
+                            <div class="ps-3">
+                                <div class="text-base font-semibold">{{ $karyawan->nama }}</div>
+                                <div class="font-normal text-red-500">{{ $karyawan->email }}</div>
+                            </div>
+                        </th>
+                        <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                            {{ $karyawan->kelas}}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                                <span class="text-red-700">{{ $karyawan->status }}</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="#" class="font-medium text-red-100 dark:text-red-700 hover:underline">Edit</a>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200 hover:bg-red-300">
+                        <td colspan="5" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                            Tidak ada data karyawan yang ditemukan.
+                        </td>
+                    </tr>
+                    @endforelse
+
                     </tbody>
                 </table>
             </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PemasokController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,15 +13,12 @@ Route::get('/dashboard', function () {
     return view('page.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Karyawan route
+Route::get('/karyawan', [KaryawanController::class, 'index']);
 
-Route::get('/karyawan', function () {
-    return view('page.karyawan');
-})->middleware(['auth', 'verified'])->name('karyawan');
 
 // Pemasok route
-Route::get('/pemasok', function () {
-    return view('page.pemasok');
-})->middleware(['auth', 'verified'])->name('pemasok');
+Route::get('/pemasok', [PemasokController::class, 'index']);
 // Barang route
 Route::get('/barang', function () {
     return view('page.barang');

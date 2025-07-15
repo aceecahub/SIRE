@@ -156,17 +156,30 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr class="bg-red-100 border-b border-red-300">
                             <td class="w-4 p-4">
                                 <input type="checkbox" class="w-4 h-4 text-red-900 bg-red-100 border-red-300 rounded-sm">
+
+
+                        @forelse ($pemasoks as $pemasok)
+
+                        <tr
+                            class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                   
+                                </div>
+
                             </td>
                             <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
                                 <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
                                 <div class="ps-3">
-                                    <div class="text-base font-semibold">Pemasok 1</div>
-                                    <div class="font-normal text-red-500">pemasok1@gmail.com</div>
+                                    <div class="text-base font-semibold">{{ $pemasok->nama_pemasok }}</div>
+                                    <div class="font-normal text-red-500">{{ $pemasok->email}}</div>
                                 </div>
                             </th>
+
                             <td class="px-6 py-4">01/01/25</td>
                             <td class="px-6 py-4">Alamat</td>
                             <td class="px-6 py-4">0293808900</td>
@@ -174,12 +187,32 @@
                                 <div class="flex items-center">
                                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
                                     <span>Online</span>
+
+                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                {{ $pemasok->alamat }}
+                            </td>
+                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                {{ $pemasok->no_telp }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
+                                        class ="text-red-700">{{ $pemasok->status }}</span>
+
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
                             </td>
                         </tr>
+                         @empty
+                        <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
+                            <td colspan="6" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                                Tidak ada data Pemasok yang ditemukan.
+                            </td>
+                        </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
