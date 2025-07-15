@@ -38,78 +38,85 @@
                                         <button type="button"
                                             class="text-red-400 bg-transparent hover:bg-red-200 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                                             data-modal-hide="modalTambahPemasok">
-                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                             </svg>
                                             <span class="sr-only">Tutup modal</span>
                                         </button>
                                     </div>
                                     <div class="p-4 md:p-5">
-                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2" action="#">
+                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2"
+                                            action="{{ route('pemasok.store') }}" method="POST">
+                                            @csrf
                                             <div class="col-span-2">
-                                                <label for="nama" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="nama_pemasok"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Nama Pemasok</label>
-                                                <input type="text" name="nama" id="nama"
+                                                <input type="text" name="nama_pemasok" id="nama_pemasok"
+                                                    value="{{ old('nama_pemasok') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="Nama Pemasok" required />
                                             </div>
 
                                             <div class="col-span-2">
-                                                <label for="email" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="email"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Email</label>
                                                 <input type="email" name="email" id="email"
+                                                    value="{{ old('email') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="nama@gmail.com" required />
                                             </div>
 
                                             <div>
-                                                <label for="tgl-terdaftar" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="tgl_terdaftar"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Tanggal Terdaftar</label>
-                                                <input type="date" name="tgl-terdaftar" id="tgl-terdaftar"
+                                                <input type="date" name="tgl_terdaftar" id="tgl_terdaftar"
+                                                    value="{{ old('tgl_terdaftar') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="Tanggal Terdaftar" required />
                                             </div>
 
-                                             <div>
-                                                <label for="noHP" class="block mb-1 text-sm font-medium text-red-900">
+                                            <div>
+                                                <label for="noHP"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     No Hp</label>
-                                                <input type="number" name="noHP" id="noHP" placeholder="08123456789"
+                                                <input type="number" name="noHP" id="noHP"
+                                                    value="{{ old('noHP') }}" placeholder="08123456789"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     required />
                                             </div>
-                                            
+
                                             <div class="col-span-2">
-                                                <label for="alamat" class="block mb-2 text-sm font-medium text-red-900">
+                                                <label for="alamat"
+                                                    class="block mb-2 text-sm font-medium text-red-900">
                                                     Alamat</label>
-                                                <textarea name="alamat" id="alamat" placeholder="Alamat Pemasok"
+                                                <textarea name="alamat" id="alamat" value="{{ old('alamat') }}" placeholder="Alamat Pemasok"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     required></textarea>
                                             </div>
 
                                             <div>
-                                                <label for="noHP" class="block mb-1 text-sm font-medium text-red-900">
-                                                    No Hp</label>
-                                                <input type="number" name="noHP" id="noHP" placeholder="08123456789"
-                                                    class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    required />
-                                            </div>
-
-                                            <div>
-                                                <label for="status" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="status"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Status</label>
                                                 <select id="status" name="status"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5">
-                                                    <option value="Aktif">Aktif</option>
-                                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                                    <option value="aktif">Aktif</option>
+                                                    <option value="nonaktif">Tidak Aktif</option>
                                                 </select>
                                             </div>
                                             <div class="col-span-2">
-                                                 <button type="submit"
-                                                class="col-span-2 w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                                Simpan
-                                            </button>
+                                                <button type="submit"
+                                                    class="col-span-2 w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                                    Simpan
+                                                </button>
                                             </div>
-                                           
+
                                         </form>
                                     </div>
                                 </div>
@@ -157,62 +164,46 @@
                     </thead>
                     <tbody>
 
-                        <tr class="bg-red-100 border-b border-red-300">
-                            <td class="w-4 p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-900 bg-red-100 border-red-300 rounded-sm">
-
-
-                        @forelse ($pemasoks as $pemasok)
-
-                        <tr
-                            class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
-                            <td class="w-4 p-4">
-                                <div class="flex items-center">
-                                   
-                                </div>
-
-                            </td>
-                            <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">{{ $pemasok->nama_pemasok }}</div>
-                                    <div class="font-normal text-red-500">{{ $pemasok->email}}</div>
-                                </div>
-                            </th>
-
-                            <td class="px-6 py-4">01/01/25</td>
-                            <td class="px-6 py-4">Alamat</td>
-                            <td class="px-6 py-4">0293808900</td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                    <span>Online</span>
-
-                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                {{ $pemasok->alamat }}
-                            </td>
-                            <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                {{ $pemasok->no_telp }}
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
-                                        class ="text-red-700">{{ $pemasok->status }}</span>
-
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                         @empty
-                        <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
-                            <td colspan="6" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
-                                Tidak ada data Pemasok yang ditemukan.
-                            </td>
-                        </tr>
+      @forelse ($pemasoks as $pemasok)
+                            <tr class="bg-red-100 border-b border-red-300">
+                                <td class="w-4 p-4">
+                                    <div class="flex items-center">{{ $loop->iteration }}</div>
+                                </td>
+                                <th scope="row"
+                                    class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
+                                    <div class="ps-3">
+                                        <div class="text-base font-semibold">{{ $pemasok->nama_pemasok }}</div>
+                                        <div class="font-normal text-red-500">{{ $pemasok->email }}</div>
+                                    </div>
+                                </th>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $pemasok->tgl_terdaftar }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $pemasok->alamat }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $pemasok->noHP }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
+                                            class ="text-red-700">{{ $pemasok->status }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="font-medium text-red-100 dark:text-red-700 hover:underline">Edit</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
+                                <td colspan="7" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                                    Tidak ada data Pemasok yang ditemukan.
+                                </td>
+                            </tr>
                         @endforelse
-
+                        
                     </tbody>
                 </table>
             </div>
