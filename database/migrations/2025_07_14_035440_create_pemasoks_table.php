@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('pemasoks', function (Blueprint $table) {
             $table->id('pemasok_id');
             $table->string('nama_pemasok');
-            $table->string('alamat');
-            $table->string('no_telp');
             $table->string('email')->nullable();
-            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->date('tgl-terdaftar');
+            $table->string('noHP');
+            $table->string('alamat');
+            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->timestamps();
         });
     }
