@@ -12,7 +12,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+         $barangs = Barang::all();
+        return view('page.barang', compact('barangs'));
     }
 
     /**
@@ -28,7 +29,16 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_barang'   => 'required|string|max:255',
+            'harga_jual'          => 'required|string',
+            'harga_beli'          => 'required|string',
+            'kadaluarsa'  => 'required|date',
+            'stok'           => 'required|string',
+            'status'         => 'required|in:aktif,nonaktif',
+        ]);
+        Barang::create($validatedData);
+        return back()->with('successNotif', "Data '" . $request->nama_barang . "' berhasil ditambahkan.");
     }
 
     /**
