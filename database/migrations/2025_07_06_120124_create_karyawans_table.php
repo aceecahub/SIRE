@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->enum('jk', ['L', 'P']);
             $table->string('alamat');
-            $table->integer('noHP');
+            $table->string('noHP');
             $table->enum('status', ['online', 'offline']);
             $table->timestamps();
         });
