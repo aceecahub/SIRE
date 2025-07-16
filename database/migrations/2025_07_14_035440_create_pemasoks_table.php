@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('pemasok_id');
             $table->string('nama_pemasok');
             $table->string('email')->nullable();
-            $table->date('tgl-terdaftar');
+            $table->date('tgl_terdaftar');
             $table->string('noHP');
             $table->string('alamat');
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');

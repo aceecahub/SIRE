@@ -7,7 +7,7 @@
         {{-- Tabel Karyawan --}}
 
         <div>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg    ">
                 <div
                     class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
                     <div class="flex items-center">
@@ -156,7 +156,7 @@
 
                     <tbody>
                         @forelse ($karyawans as $karyawan)
-                            <tr class="bg-red-100 border-b border-red-300">
+                            <tr class="bg-white">
                                 <td class="w-4 p-4">{{ $loop->iteration}}</td>
                                 <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
                                     <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}"
