@@ -30,12 +30,12 @@ class PemasokController extends Controller
             'nama_pemasok'   => 'required|string|max:255',
             'email'          => 'required|email|unique:pemasoks,email',
             'tgl_terdaftar'  => 'required|date',
-            'noHP'           => 'required|numeric|unique:pemasoks,noHP',
+            'noHP'           => 'required|string|unique:pemasoks,noHP',
             'alamat'         => 'required|string',
             'status'         => 'required|in:aktif,nonaktif',
         ]);
         Pemasok::create($validatedData);
-        return back()->with('successNotif', "Data '" . $request->nama . "' berhasil ditambahkan.");
+        return back()->with('successNotif', "Data '" . $request->nama_pemasok . "' berhasil ditambahkan.");
     }
 
 

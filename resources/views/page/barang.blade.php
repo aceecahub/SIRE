@@ -36,7 +36,7 @@
                                 <div class="relative bg-red-100 rounded-lg shadow-sm">
                                     <div class="flex items-center justify-between p-4 md:p-5 border-b border-red-300">
                                         <h3 class="text-xl font-semibold text-red-900">
-                                            Tambah Pemasok
+                                            Tambah Barang
                                         </h3>
                                         <button type="button"
                                             class="text-red-400 bg-transparent hover:bg-red-200 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -53,6 +53,7 @@
                                     <div class="p-4 md:p-5">
                                         <form class="space-y-4 grid gap-2 mb-2 grid-cols-2"
                                             action="{{ route('barang.store') }}" method="POST">
+
                                             @csrf
                                             <div class="col-span-2">
                                                 <label for="nama_barang"
@@ -152,11 +153,11 @@
                                 <input type="checkbox"
                                     class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
                             </th>
-                            <th class="px-6 py-3">Nama Pemasok</th>
-                            <th class="px-6 py-3">Tanggal Terdaftar</th>
-                            <th class="px-6 py-3">Alamat</th>
-                            <th class="px-6 py-3">Nomor HP</th>
-                            <th class="px-6 py-3">Status</th>
+                            <th class="px-6 py-3">Nama Barang</th>
+                            <th class="px-6 py-3">Harga Jual</th>
+                            <th class="px-6 py-3">harga Beli</th>
+                            <th class="px-6 py-3">Stok</th>
+                            <th class="px-6 py-3">Kadaluarsa</th>
                             <th class="px-6 py-3">Aksi</th>
                         </tr>
                     </thead>
@@ -167,15 +168,8 @@
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">{{ $loop->iteration }}</div>
                                 </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 text-red-900 whitespace-nowrap dark:text-red-700">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">{{ $barang->nama_barang }}</div>
-                                        <div class="font-normal text-red-500">{{ $barang->stok }}</div>
-                                    </div>
-                                </th>
                                 <td class="px-6 py-4 text-red-700 dark:text-red-700">
-                                    {{ $barang->kadaluarsa->format('d-m-Y') }}
+                                    {{ $barang->nama_barang }}
                                 </td>
                                 <td class="px-6 py-4 text-red-700 dark:text-red-700">
                                     {{ $barang->harga_jual }}
@@ -183,11 +177,11 @@
                                 <td class="px-6 py-4 text-red-700 dark:text-red-700">
                                     {{ $barang->harga_beli }}
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> <span
-                                            class ="text-red-700">{{ $barang-> }}</span>
-                                    </div>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->stok }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->kadaluarsa }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="#"
@@ -197,11 +191,11 @@
                         @empty
                             <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
                                 <td colspan="7" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
-                                    Tidak ada data barang yang ditemukan.
+                                    Tidak ada data Pemasok yang ditemukan.
                                 </td>
                             </tr>
                         @endforelse
-                        
+
                     </tbody>
                 </table>
             </div>
