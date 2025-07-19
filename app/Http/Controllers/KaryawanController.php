@@ -35,7 +35,7 @@ class KaryawanController extends Controller
             'kelas'     => 'required|string',
             'jk'        => 'required|in:L,P',
             'alamat'    => 'required|string',
-            'noHP'      => 'required|numeric|unique:karyawans,noHP',
+            'noHP'      => 'required|string|unique:karyawans,noHP',
         ]);
         Karyawan::create($validatedData);
         return back()->with('successNotif', "Data '" . $request->nama . "' berhasil ditambahkan.");

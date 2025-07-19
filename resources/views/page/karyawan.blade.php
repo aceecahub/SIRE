@@ -156,7 +156,7 @@
 
                     <tbody>
                         @forelse ($karyawans as $karyawan)
-                            <tr class="bg-white">
+                            <tr class="bg-gray-75">
                                 <td class="w-4 p-4">{{ $loop->iteration}}</td>
                                 <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
                                     <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}"
