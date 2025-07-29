@@ -92,7 +92,7 @@
                                                 <input type="number" name="stok" id="stok"
                                                     value="{{ old('stok') }}" placeholder="08123456789"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    placeholder=" pcs" required />
+                                                    placeholder="0" required />
                                             </div>
                                             <div>
                                                 <label for="kadaluarsa"
