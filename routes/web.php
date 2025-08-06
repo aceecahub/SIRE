@@ -1,22 +1,28 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PemasokController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('page.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('page.dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/transaksi', function () {
-    return view('page.transaksi');
-})->middleware(['auth', 'verified'])->name('transaksi');
+// Dashboard route
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+// Route::get('/transaksi', function () {
+//     return view('page.transaksi');
+// })->middleware(['auth', 'verified'])->name('transaksi');
 
 // Karyawan route
 Route::resource('/karyawan', KaryawanController::class);
@@ -26,6 +32,9 @@ Route::resource('/pemasok', PemasokController::class);
 
 // Pemasok route
 Route::resource('/barang', BarangController::class);
+
+//Transaksi route
+Route::resource('/transaksi', TransaksiController::class);
 
 
 
