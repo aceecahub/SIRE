@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="mx-5">
-                            <h4 class="text-2xl font-semibold text-gray-700">100</h4>
+                            <h4 class="text-2xl font-semibold text-gray-700">{{$dataKaryawan}}</h4>
                             <div class="text-gray-500">Karyawan</div>
                         </div>
                     </div>
@@ -37,8 +37,8 @@
                         </div>
 
                         <div class="mx-5">
-                            <h4 class="text-2xl font-semibold text-gray-700">100</h4>
-                            <div class="text-gray-500">Kategori Barang</div>
+                            <h4 class="text-2xl font-semibold text-gray-700">{{$dataBarang}}</h4>
+                            <div class="text-gray-500">Barang</div>
                         </div>
                     </div>
                 </div>
