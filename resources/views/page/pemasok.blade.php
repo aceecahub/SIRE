@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Section 1 --}}
-    <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
+    <section class="w-full h-screen bg-white md:pl-[215px] p-[10px] pt-[80px] md:pr-[210px]">
 
         <h3 class="text-red-900 text-3xl font-medium mb-2">Data Pemasok</h3>
 
