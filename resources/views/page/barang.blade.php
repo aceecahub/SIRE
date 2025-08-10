@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Section 1 --}}
-    <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
+    <section class="w-full h-screen bg-white md:pl-[215px] p-[10px] pt-[80px] pr-[210px]">
 
         <h3 class="text-red-900 text-3xl font-medium mb-2">Data Barang</h3>
 
@@ -8,15 +8,18 @@
 
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
+                <div
+                    class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
                     <div class="flex items-center">
                         <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
                             class="inline-flex items-center text-white bg-red-700 border border-red-600 focus:outline-none hover:bg-red-600 focus:ring-2 focus:ring-red-500 font-medium rounded-lg text-sm px-3 py-1.5"
                             type="button">
                             <span class="sr-only">Tombol Aksi</span>
                             Aksi
-                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
 
@@ -24,6 +27,7 @@
                             class="block text-white ml-2 bg-red-800 hover:bg-red-700 focus:ring-2 focus:outline-none focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2 gap-2 text-center"
                             type="button">
                             Toggle modal
+                            Tambah Barang
                         </button>
 
                         {{-- Modal Input  --}}
@@ -38,78 +42,76 @@
                                         <button type="button"
                                             class="text-red-400 bg-transparent hover:bg-red-200 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                                             data-modal-hide="modalTambahBarang">
-                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                             </svg>
                                             <span class="sr-only">Tutup modal</span>
                                         </button>
                                     </div>
                                     <div class="p-4 md:p-5">
-                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2" action="#">
+                                        <form class="space-y-4 grid gap-2 mb-2 grid-cols-2"
+                                            action="{{ route('barang.store') }}" method="POST">
+
+                                            @csrf
                                             <div class="col-span-2">
-                                                <label for="nama" class="block mb-1 text-sm font-medium text-red-900">
+                                                <label for="nama_barang"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
                                                     Nama Barang</label>
-                                                <input type="text" name="nama" id="nama"
+                                                <input type="text" name="nama_barang" id="nama_barang"
+                                                    value="{{ old('nama_barang') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
                                                     placeholder="Nama Barang" required />
                                             </div>
 
                                             <div class="col-span-2">
-                                                <label for="email" class="block mb-1 text-sm font-medium text-red-900">
-                                                    Email</label>
-                                                <input type="email" name="email" id="email"
+                                                <label for="harga_jual"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
+                                                    Harga Jual</label>
+                                                <input type="number" name="harga_jual" id="harga_jual"
+                                                    value="{{ old('harga_jual') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    placeholder="nama@gmail.com" required />
+                                                    placeholder="Rp. 0" required />
                                             </div>
 
                                             <div>
-                                                <label for="tgl-terdaftar" class="block mb-1 text-sm font-medium text-red-900">
-                                                    Tanggal Terdaftar</label>
-                                                <input type="date" name="tgl-terdaftar" id="tgl-terdaftar"
+                                                <label for="harga_beli"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
+                                                    Harga Beli</label>
+                                                <input type="number" name="harga_beli" id="harga_beli"
+                                                    value="{{ old('harga_beli') }}"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    placeholder="Tanggal Terdaftar" required />
+                                                    placeholder="Rp. 0" required />
                                             </div>
 
-                                             <div>
-                                                <label for="noHP" class="block mb-1 text-sm font-medium text-red-900">
-                                                    No Hp</label>
-                                                <input type="number" name="noHP" id="noHP" placeholder="08123456789"
+                                            <div>
+                                                <label for="stok"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
+                                                    Stok</label>
+                                                <input type="number" name="stok" id="stok"
+                                                    value="{{ old('stok') }}" placeholder="08123456789"
                                                     class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    required />
+                                                    placeholder="0" required />
                                             </div>
-                                            
+                                            <div>
+                                                <label for="kadaluarsa"
+                                                    class="block mb-1 text-sm font-medium text-red-900">
+                                                    Kadaluarsa</label>
+                                                <input type="date" name="kadaluarsa" id="kadaluarsa"
+                                                    value="{{ old('kadaluarsa') }}"
+                                                    class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
+                                                    placeholder="" required />
+                                            </div>
+
                                             <div class="col-span-2">
-                                                <label for="alamat" class="block mb-2 text-sm font-medium text-red-900">
-                                                    Alamat</label>
-                                                <textarea name="alamat" id="alamat" placeholder="Alamat Pemasok"
-                                                    class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    required></textarea>
+                                                <button type="submit"
+                                                    class="col-span-2 w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                                    Simpan
+                                                </button>
                                             </div>
 
-                                            <div>
-                                                <label for="noHP" class="block mb-1 text-sm font-medium text-red-900">
-                                                    No Hp</label>
-                                                <input type="number" name="noHP" id="noHP" placeholder="08123456789"
-                                                    class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5"
-                                                    required />
-                                            </div>
-
-                                            <div>
-                                                <label for="status" class="block mb-1 text-sm font-medium text-red-900">
-                                                    Status</label>
-                                                <select id="status" name="status"
-                                                    class="bg-red-50 border border-red-900 text-red-900 text-sm rounded-lg focus:ring-red-900 focus:border-red-900 block w-full p-2.5">
-                                                    <option value="Aktif">Aktif</option>
-                                                    <option value="Tidak Aktif">Tidak Aktif</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-span-2">
-                                                 <button type="submit"
-                                                class="col-span-2 w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                                Simpan
-                                            </button>
-                                            </div>
-                                           
                                         </form>
                                     </div>
                                 </div>
@@ -122,18 +124,22 @@
                             <ul class="py-1 text-sm text-white" aria-labelledby="dropdownActionButton">
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Reward</a></li>
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Promote</a></li>
-                                <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a>
+                                </li>
                             </ul>
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus Pemasok</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus
+                                    Pemasok</a>
                             </div>
                         </div>
                     </div>
                     <label for="table-search" class="sr-only">Cari </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
                         <input type="text" id="table-search-users"
@@ -145,41 +151,52 @@
                     <thead class="text-xs uppercase bg-red-200 text-red-800">
                         <tr>
                             <th class="p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
+                                <input type="checkbox"
+                                    class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
                             </th>
-                            <th class="px-6 py-3">Nama Pemasok</th>
-                            <th class="px-6 py-3">Tanggal Terdaftar</th>
-                            <th class="px-6 py-3">Alamat</th>
-                            <th class="px-6 py-3">Nomor HP</th>
-                            <th class="px-6 py-3">Status</th>
+                            <th class="px-6 py-3">Nama Barang</th>
+                            <th class="px-6 py-3">Harga Jual</th>
+                            <th class="px-6 py-3">harga Beli</th>
+                            <th class="px-6 py-3">Stok</th>
+                            <th class="px-6 py-3">Kadaluarsa</th>
                             <th class="px-6 py-3">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-red-100 border-b border-red-300">
-                            <td class="w-4 p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-900 bg-red-100 border-red-300 rounded-sm">
-                            </td>
-                            <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="{{ asset('img/user-icon.png') }}" alt="">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Pemasok 1</div>
-                                    <div class="font-normal text-red-500">pemasok1@gmail.com</div>
-                                </div>
-                            </th>
-                            <td class="px-6 py-4">01/01/25</td>
-                            <td class="px-6 py-4">Alamat</td>
-                            <td class="px-6 py-4">0293808900</td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                    <span>Online</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-red-700 hover:underline">Edit</a>
-                            </td>
-                        </tr>
+
+                        @forelse ($barangs as $barang)
+                            <tr class="bg-red-100 border-b border-red-300">
+                                <td class="w-4 p-4">
+                                    <div class="flex items-center">{{ $loop->iteration }}</div>
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->nama_barang }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->harga_jual }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->harga_beli }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->stok }}
+                                </td>
+                                <td class="px-6 py-4 text-red-700 dark:text-red-700">
+                                    {{ $barang->kadaluarsa }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="font-medium text-red-100 dark:text-red-700 hover:underline">Edit</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr class="bg-white border-b dark:bg-red-200 dark:border-red-500 border-red-200">
+                                <td colspan="7" class="px-6 py-4 text-center text-red-700 dark:text-red-400">
+                                    Tidak ada data Pemasok yang ditemukan.
+                                </td>
+                            </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
@@ -191,11 +208,16 @@
                 Showing <span class="font-semibold">1-10</span> of <span class="font-semibold">100</span> results
             </span>
             <nav class="flex items-center space-x-2">
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
             </nav>
         </div>
     </section>

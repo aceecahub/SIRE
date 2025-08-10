@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Section 1 --}}
-    <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
+    <section class="w-full h-screen bg-white md:pl-[215px] p-[10px] pt-[80px] md:pr-[210px]">
 
         <h3 class="text-red-900 text-3xl font-medium mb-2">Data Pemasok</h3>
 
@@ -8,15 +8,18 @@
 
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
+                <div
+                    class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-red-200 p-5">
                     <div class="flex items-center">
                         <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
                             class="inline-flex items-center text-white bg-red-700 border border-red-600 focus:outline-none hover:bg-red-600 focus:ring-2 focus:ring-red-500 font-medium rounded-lg text-sm px-3 py-1.5"
                             type="button">
                             <span class="sr-only">Tombol Aksi</span>
                             Aksi
-                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                            <svg class="w-2.5 h-2.5 ms-2.5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
 
@@ -129,18 +132,22 @@
                             <ul class="py-1 text-sm text-white" aria-labelledby="dropdownActionButton">
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Reward</a></li>
                                 <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Promote</a></li>
-                                <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-red-600">Activate account</a>
+                                </li>
                             </ul>
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus Pemasok</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-red-600">Hapus
+                                    Pemasok</a>
                             </div>
                         </div>
                     </div>
                     <label for="table-search" class="sr-only">Cari </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            <svg class="w-4 h-4 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
                         <input type="text" id="table-search-users"
@@ -152,7 +159,8 @@
                     <thead class="text-xs uppercase bg-red-200 text-red-800">
                         <tr>
                             <th class="p-4">
-                                <input type="checkbox" class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
+                                <input type="checkbox"
+                                    class="w-4 h-4 text-red-800 bg-red-100 border-red-300 rounded-sm">
                             </th>
                             <th class="px-6 py-3">Nama Pemasok</th>
                             <th class="px-6 py-3">Tanggal Terdaftar</th>
@@ -164,7 +172,7 @@
                     </thead>
                     <tbody>
 
-      @forelse ($pemasoks as $pemasok)
+                        @forelse ($pemasoks as $pemasok)
                             <tr class="bg-red-100 border-b border-red-300">
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">{{ $loop->iteration }}</div>
@@ -203,7 +211,7 @@
                                 </td>
                             </tr>
                         @endforelse
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -215,11 +223,16 @@
                 Showing <span class="font-semibold">1-10</span> of <span class="font-semibold">100</span> results
             </span>
             <nav class="flex items-center space-x-2">
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
-                <a href="#" class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Previous</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-white bg-red-800 border border-red-600 rounded-lg hover:bg-red-700">1</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">2</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">3</a>
+                <a href="#"
+                    class="px-3 py-1 text-sm font-medium text-red-600 bg-white border border-red-400 rounded-lg hover:bg-red-100">Next</a>
             </nav>
         </div>
     </section>

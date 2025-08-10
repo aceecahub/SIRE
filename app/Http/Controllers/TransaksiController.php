@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Karyawan;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
-class KaryawanController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(request $request)
+    public function index(Request $request)
     {
-        $karyawans = Karyawan::all();
-        return view('page.karyawan', compact('karyawans'));
+        $dataBarang = Barang::orderBy('barang_id', 'asc')->get();
+        $dataKaryawan = Karyawan::orderBy('karyawan_id', 'asc')->get();
+        $transaksis = Transaksi::with(['barang'])->get();
+        return view('page.transaksi', compact('transaksis', 'dataBarang', 'dataKaryawan'));
     }
 
     /**
@@ -29,20 +33,12 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama'      => 'required|string|max:255',
-            'email'     => 'required|email|unique:karyawans,email',
-            'kelas'     => 'required|string',
-            'jk'        => 'required|in:L,P',
-            'alamat'    => 'required|string',
-            'noHP'      => 'required|string|unique:karyawans,noHP',
-        ]);
-        Karyawan::create($validatedData);
-        return back()->with('successNotif', "Data '" . $request->nama . "' berhasil ditambahkan.");
+        //
     }
 
-
-
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
         //

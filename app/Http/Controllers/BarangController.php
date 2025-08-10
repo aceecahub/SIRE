@@ -10,9 +10,10 @@ class BarangController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $barangs = Barang::all();
+        return view('page.barang', compact('barangs'));
     }
 
     /**
@@ -28,7 +29,15 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_barang'   => 'required|string|max:255',
+            'harga_jual'    => 'required|string',
+            'harga_beli'    => 'required|string',
+            'stok'          => 'required|string',   
+            'kadaluarsa'    => 'required|string',
+        ]);
+        Barang::create($validatedData);
+        return back()->with('successNotif', "Data '" . $request->nama_barang . "' berhasil ditambahkan.");
     }
 
     /**
