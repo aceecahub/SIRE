@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Section 1 --}}
-    <section class="w-full h-screen bg-white md:pl-[310px] p-[20px] pt-[100px]">
+    <section class="w-full h-screen bg-white md:pl-[215px] p-[10px] pt-[80px] pr-[210px]">
 
         <h3 class="text-red-900 text-3xl font-medium mb-2">Data Barang</h3>
 
@@ -27,6 +27,7 @@
                             class="block text-white ml-2 bg-red-800 hover:bg-red-700 focus:ring-2 focus:outline-none focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2 gap-2 text-center"
                             type="button">
                             Toggle modal
+                            Tambah Barang
                         </button>
 
                         {{-- Modal Input  --}}

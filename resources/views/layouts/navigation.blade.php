@@ -59,11 +59,6 @@
                 <p class="text-sm">Kasir</p>
         </div>
         <div class="border border-gray-400"></div>
-        <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('dashboard') ? 'bg-red-700 text-white' : 'hover:bg-red-200' }}">
-            <a href="/dashboard">
-                <p><i class="bi bi-cash"></i>Dashboard</p>
-            </a>
-        </div>
         <div class=" rounded-full px-5 py-3 mt-5 my-1 pl-4 transitio-all duration-200 {{ request()->is('transaksi') ? 'bg-red-700 text-white' : 'hover:bg-red-200' }}">
             <a href="/transaksi">
                 <p><i class="bi bi-cash"></i>Transaksi</p>
@@ -75,3 +70,6 @@
     </aside>
 
  </aside>
+
+
+ 

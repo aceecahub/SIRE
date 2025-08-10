@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Karyawan;
+use App\Models\Pemasok;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,7 +16,8 @@ class DashboardController extends Controller
     {
         $dataKaryawan = Karyawan::count();
         $dataBarang = Barang::count();
-        return view('page.dashboard', compact('dataKaryawan', 'dataBarang'));
+        $dataPemasok = Pemasok::count();
+        return view('page.dashboard', compact('dataKaryawan', 'dataBarang', 'dataPemasok'));
     }
 
     /**
